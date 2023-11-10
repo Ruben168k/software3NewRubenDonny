@@ -2,6 +2,8 @@
 
 Beste nakijker hier een kleine toelichting.
 
+APK is gegenereerd app/build/outputs/apk/release/app-release-unsigned.apk
+
 Getest op de Pixel 6 API 34.
 
 je kan inloggen met account:
