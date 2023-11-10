@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.software3.viewmodel.SignUpViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:background="#FFFFFF"
+        tools:context=".SignUpActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/usernameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:inputType="text"
+                android:text="@={viewModel.username}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/firstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/firstnameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Firstname"
+                android:inputType="text"
+                android:text="@={viewModel.firstname}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/firstname"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/lastnameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lastname"
+                android:inputType="text"
+                android:text="@={viewModel.lastname}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lastname"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/emailEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.email}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/email"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/passwordEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:text="@={viewModel.password}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/signUpBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password"
+            android:layout_marginTop="20dp"
+            android:text="Sign Up"
+            android:backgroundTint="#0057D8"
+            android:textColor="#FFFFFF"
+            android:onClick="@{() -> viewModel.onSignUpClick()}" />
+
+    </RelativeLayout>
+</layout>

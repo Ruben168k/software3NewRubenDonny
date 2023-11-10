@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
+    android:background="#FFFFFF">
+
+    <!-- Normale Profiel Knop -->
+    <Button
+        android:id="@+id/profileBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mijn Profiel"
+        android:backgroundTint="#0057D8"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="20dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:text="Sollicitanten:" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/profilesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
