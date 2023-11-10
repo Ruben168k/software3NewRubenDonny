@@ -12,5 +12,5 @@ Seeding is gemaakt, is alleen uitgecomment is DashboardActivity, dit zodat u kun
 of profiel zichtbaarheid echt werkt.
 //        seedDatabaseWithProfiles()
 
-Navgraph is gemaakt en staat in de project directory.
+Navgraph is gemaakt en staat in de project directory netzo als de userstories
 
