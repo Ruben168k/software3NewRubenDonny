@@ -26,7 +26,7 @@ class DashboardActivity : AppCompatActivity() {
 
         profilesRecyclerView = findViewById(R.id.profilesRecyclerView)
         supportActionBar?.apply {
-            title = "Dashboard"
+            title = "Dashboard / Landingspagina"
             setDisplayHomeAsUpEnabled(false) // Hiermee wordt de up-knop weergegeven
         }
 
