@@ -61,6 +61,31 @@ class ProfileViewModel : ViewModel() {
         }
     }
 
+    fun updateProfileData(username: String, firstName: String, lastName: String) {
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let { currentUser ->
+            val userId = currentUser.uid
+            val db = FirebaseFirestore.getInstance()
+            val userDocument = db.collection("profiles").document(userId)
+
+            val updates = hashMapOf(
+                "username" to username,
+                "firstname" to firstName,
+                "lastname" to lastName,
+            )
+
+            userDocument.update(updates as Map<String, Any>)
+                .addOnSuccessListener {
+                    // Succesvol bijgewerkt, bijvoorbeeld een Toast tonen
+                }
+                .addOnFailureListener { e ->
+                    // Fout bij het bijwerken, bijvoorbeeld een foutmelding tonen
+                }
+        }
+    }
+
+
+
 }
 
 

@@ -1,10 +1,12 @@
 package com.example.software3.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.software3.ProfileDetailActivity
 import com.example.software3.R
 import com.example.software3.model.Profile
 
@@ -35,7 +37,18 @@ class ProfileAdapter(private val profiles: List<Profile>) : RecyclerView.Adapter
             // Verberg de View als de visability niet waar is
             holder.itemView.visibility = View.GONE
         }
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, ProfileDetailActivity::class.java).apply {
+                putExtra("USERNAME", currentProfile.username)
+                putExtra("FIRST_NAME", currentProfile.firstname)
+                putExtra("LAST_NAME", currentProfile.lastname)
+                putExtra("ROLE", currentProfile.role)
+            }
+            holder.itemView.context.startActivity(intent)
+        }
     }
+
 
 
     override fun getItemCount(): Int {

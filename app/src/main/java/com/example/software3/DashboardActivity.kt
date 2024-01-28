@@ -30,54 +30,48 @@ class DashboardActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(false) // Hiermee wordt de up-knop weergegeven
         }
 
-        // Stel een LayoutManager in voor de RecyclerView
         profilesRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Ophalen van profielgegevens van Firestore
         val db = FirebaseFirestore.getInstance()
         val usersCollection = db.collection("profiles")
 
         usersCollection.get()
             .addOnSuccessListener { querySnapshot ->
                 val profiles = mutableListOf<Profile>()
-
                 for (document in querySnapshot) {
-                    val profile = Profile(
-                        document.getString("username") ?: "",
-                        document.getString("firstname") ?: "",
-                        document.getString("lastname") ?: "",
-                        document.getBoolean("visability") ?: false,
-                        document.getString("role") ?: ""
-                    )
-                    profiles.add(profile)
+                    val visability = document.getBoolean("visability") ?: false
+                    if (visability) { // Voeg alleen profielen toe als visability waar is
+                        val profile = Profile(
+                            username = document.getString("username") ?: "",
+                            firstname = document.getString("firstname") ?: "",
+                            lastname = document.getString("lastname") ?: "",
+                            visability = visability,
+                            role = document.getString("role") ?: ""
+                        )
+                        profiles.add(profile)
+                    }
                 }
 
                 profileAdapter = ProfileAdapter(profiles)
                 profilesRecyclerView.adapter = profileAdapter
             }
 
-
-//        seedDatabaseWithProfiles()
-
         val profileBtn = findViewById<Button>(R.id.profileBtn)
         profileBtn.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
+
+//        seedDatabaseWithProfiles()
     }
 
     private fun seedDatabaseWithProfiles() {
-        val numProfilesToSeed = 100 // Define the number of profiles you want to seed
+        val numProfilesToSeed = 100
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 profileSeeder.seedProfiles(numProfilesToSeed)
-                // Handle success, if needed
             } catch (e: Exception) {
-                // Handle any exceptions during seeding
                 Log.e("Seeding", "Error seeding database: $e")
             }
         }
     }
 }
-
-

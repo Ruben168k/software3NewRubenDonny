@@ -18,8 +18,8 @@
             android:textColor="#0057D8"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/usernameTextView"
+        <EditText
+            android:id="@+id/usernameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Username" />
@@ -38,8 +38,8 @@
             android:textColor="#0057D8"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/firstNameTextView"
+        <EditText
+            android:id="@+id/firstNameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="First Name" />
@@ -58,20 +58,29 @@
             android:textColor="#0057D8"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/lastNameTextView"
+        <EditText
+            android:id="@+id/lastNameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Last Name" />
     </LinearLayout>
 
     <Switch
-        android:id="@+id/visabilitySwitch"
+        android:id="@+id/visibilitySwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Uw profiel zichtbaar tonen voor iedereen?"
         android:textColor="#0057D8" />
+
+    <Button
+        android:id="@+id/saveChangesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#0057D8"
+        android:text="Wijzigingen opslaan"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/logoutButton"
@@ -81,4 +90,14 @@
         android:backgroundTint="#0057D8"
         android:text="Uitloggen"
         android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/deleteAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account verwijderen"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF" />
+
 </LinearLayout>
